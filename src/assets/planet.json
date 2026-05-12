@@ -1,0 +1,47 @@
+[
+    {
+        "planet": "Mercury",
+        "distanceFromSun": 57.9,
+        "image": "./assets/Mecury2.htm"
+    },
+    {
+        "planet": "Venus",
+        "distanceFromSun": 108.2,
+        "image": "./assets/Venus2.htm"
+    },
+    {
+        "planet": "Earth",
+        "distanceFromSun": 149.6,
+        "image": "./assets/Earth2.htm"
+    },
+    {
+        "planet": "Mars",
+        "distanceFromSun": 227.9,
+        "image": "./assets/Mars.htm"
+    },
+    {
+        "planet": "Jupiter",
+        "distanceFromSun": 778.6,
+        "image": "./assets/Jupiter.htm"
+    },
+    {
+        "planet": "Saturn",
+        "distanceFromSun": 1433.5,
+        "image": "./assets/Saturn.htm"
+    },
+    {
+        "planet": "Uranus",
+        "distanceFromSun": 2872.5,
+        "image": "./assets/Uranus.htm"
+    },
+    {
+        "planet": "Neptune",
+        "distanceFromSun": 4495.1,
+        "image": "./assets/Neptune.htm"
+    },
+    {
+        "planet": "Pluto",
+        "distanceFromSun": 5906.4,
+        "image": "./assets/Pluto.htm"
+    }
+]
