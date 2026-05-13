@@ -1,328 +1,219 @@
-# TsAcademy-Capstone-Group7-Vibing
-# Solar System Data Explorer
+# TsAcademy Capstone Group 7
 
-A frontend capstone project by **Group 7** for **TS Academy**, built to make planetary science easier to understand through structured content, data-driven comparisons, and a clean visual interface.
+## Solar System Data Explorer
 
-This application presents the solar system as an educational experience rather than a static landing page. It introduces users to planetary science, visualizes planet differences, summarizes key planetary facts in a grouped comparison table, and provides a contact form for follow-up engagement.
+A frontend capstone project by Group 7 for TS Academy. The app presents solar system content as a guided learning experience with a hero section, explainer content, planet cards, a comparison table, and a contact form.
+
+## Recent Development
+
+The latest iteration includes:
+
+- Direct local image imports for planet cards using `src/assets/planet.json`
+- Smooth-scroll CTA behavior from the hero section
+- A short roll-down transition when users jump to the data or contact sections
+- Client-side validation and submit-state feedback for the contact form
+- Cleaner data normalization in `fetch.jsx` without the older HTML metadata parsing approach
 
 ## Overview
 
-The project is designed for learners, recruiters, and reviewers who want to understand both the **product goal** and the **engineering thinking** behind it.
+The project is designed to make planetary information easier to understand through:
 
-From an employer's point of view, this project demonstrates:
+- visual comparison
+- structured educational content
+- clear section-to-section flow
+- responsive React components
 
-- Component-based UI design with React
-- Frontend styling with Tailwind CSS
-- Local data handling and transformation
-- Responsive layout structuring
-- Educational product thinking
-- Iterative UI refinement based on reference mockups
+It also serves as a portfolio-ready frontend exercise that demonstrates component composition, local asset handling, and iterative UI refinement.
 
-## Project Objective
+## Features
 
-The objective of the project is to present core planetary information in a way that is:
+- Hero section with two CTA buttons:
+  `Explore the Data` scrolls to the planet-card section
+  `Contact Us` scrolls to the contact form
+- Educational explainer section with embedded video content
+- Planet card grid generated from local JSON data
+- Grouped comparison table for major planet classifications
+- Contact form with validation and submission feedback
+- Footer with project and team credits
 
-- **Accessible**: simple enough for non-experts to understand
-- **Visual**: organized with clear sections, imagery, tables, and cards
-- **Educational**: focused on real planetary attributes such as distance, mass, diameter, density, and gravity
-- **Interactive in structure**: designed to guide the user through discovery, comparison, and contact
+## User Flow
 
-In short, the application aims to translate astronomy content into a friendly web experience for students and curious users.
-
-## Problem Statement
-
-Many educational pages about the solar system are either:
-
-- too text-heavy for beginners
-- too scientific without visual structure
-- or visually appealing but weak on actual data
-
-This project addresses that gap by combining:
-
-- a clear landing section
-- a supporting explanation block
-- a visual planet card grid
-- a structured facts table
-- and a simple inquiry form
-
-## Key Features
-
-- **Hero section** introducing the product mission
-- **Educational explainer section** with embedded video content
-- **Planet card grid** showing planet name, distance from the sun, and image
-- **Grouped comparison table** for terrestrial, jovian, gas giant, ice giant, and dwarf planet categories
-- **Contact form UI** for user inquiries
-- **Footer section** with project credits and institutional reference
-
-## User Journey
-
-The page is structured as a simple learning flow:
-
-1. A user lands on the hero section and understands the purpose of the site.
-2. The user sees why planetary data matters through the explainer section.
-3. The user browses visual planet cards for quick recognition.
-4. The user compares detailed planetary facts in a grouped data table.
-5. The user can use the contact form if they want to learn more or reach out.
+1. Users land on the hero section and understand the purpose of the site.
+2. They continue into the explainer section to learn why planetary data matters.
+3. They explore the visual planet cards generated from local data.
+4. They compare key facts in the grouped data table.
+5. They can submit an inquiry through the contact form.
 
 ## Tech Stack
 
-- **React 19**
-- **Vite**
-- **Tailwind CSS 4**
-- **Lucide React**
-- **ESLint**
+- React 19
+- Vite
+- Tailwind CSS 4
+- Lucide React
+- ESLint
 
 ## Project Structure
 
 ```text
 Capstone/
-├── public/
-├── src/
-│   ├── assets/
-│   │   ├── planet.json
-│   │   ├── Image.png
-│   │   ├── graphics.png
-│   │   └── *.htm
-│   ├── components/
-│   │   ├── headers.jsx
-│   │   ├── content1.jsx
-│   │   ├── content2.jsx
-│   │   ├── content3.jsx
-│   │   ├── content4.jsx
-│   │   ├── fetch.jsx
-│   │   └── footer.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-└── README.md
+|-- public/
+|-- src/
+|   |-- assets/
+|   |   |-- planet.json
+|   |   |-- EARTH-1024_web.png
+|   |   |-- Mercury.jpg
+|   |   |-- venus.jpg
+|   |   |-- mars-v2.jpg
+|   |   |-- jupiter-v2.jpg
+|   |   |-- saturn-v2.jpg
+|   |   |-- uranus-v2.jpg
+|   |   |-- neptune-v2.jpg
+|   |   |-- pluto.jpg
+|   |   |-- Image.png
+|   |   `-- graphics.png
+|   |-- components/
+|   |   |-- headers.jsx
+|   |   |-- content1.jsx
+|   |   |-- content2.jsx
+|   |   |-- content3.jsx
+|   |   |-- content4.jsx
+|   |   |-- fetch.jsx
+|   |   `-- footer.jsx
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- package.json
+`-- README.md
 ```
 
-## Section Breakdown
+## Component Notes
 
 ### `headers.jsx`
 
-Contains the hero area:
-
-- brand/logo placement
-- project headline
-- supporting intro text
-- call-to-action buttons
-- hero planet illustration
+Contains the hero layout, branding, intro copy, and CTA buttons. The CTA actions are passed from `App.jsx` so they can trigger smooth scrolling to the correct sections.
 
 ### `content1.jsx`
 
-Contains the educational introduction section:
-
-- embedded YouTube content
-- short explanation of how planetary data helps us understand space
+Contains the introductory educational section and embedded YouTube explainer.
 
 ### `fetch.jsx`
 
-Handles the planet data preparation layer.
+Normalizes the local planet data for the UI. It now:
 
-Current behavior:
+- imports `planet.json`
+- maps each `image` path to a real bundled asset import
+- returns UI-ready objects with `name`, `distanceFromSun`, and `image`
 
-- imports `planet.json` from local assets
-- maps raw planet entries into UI-friendly objects
-- extracts usable image URLs from the saved HTML image-reference files
+This replaces the older approach that depended on parsing saved HTML files for image metadata.
 
 ### `content2.jsx`
 
-Displays the visual planet card grid using normalized planet data:
-
-- image
-- planet name
-- distance from the sun
+Renders the planet card grid using the normalized data from `fetch.jsx`.
 
 ### `content3.jsx`
 
-Displays the grouped comparison table:
-
-- terrestrial planets
-- jovian planets
-- gas giants
-- ice giants
-- dwarf planets
+Displays the grouped planetary facts table for terrestrial planets, jovian planets, gas giants, ice giants, and dwarf planets.
 
 ### `content4.jsx`
 
-Contains the contact form UI:
+Contains the contact form. The current version includes:
 
-- full name
-- email
-- phone number
-- message
+- field-level validation
+- inline error messages
+- submit status messaging
+- POST submission to `https://whitebricks.com/tsacademy.php`
 
-### `footer.jsx`
+### `App.jsx`
 
-Contains:
+Coordinates the page flow. It now manages:
 
-- project summary
-- team credits
-- TS Academy link
+- smooth-scroll behavior for CTA buttons
+- section refs for the data and contact areas
+- the temporary roll-down transition state applied after scroll
 
-## How the Data Works
+## Data Model
 
-This project uses a local file:
+The app uses local JSON from:
 
 ```text
 src/assets/planet.json
 ```
 
-Each planet entry contains:
+Each entry includes:
 
 - `planet`
 - `distanceFromSun`
 - `image`
 
-The current image references inside `planet.json` point to `.htm` files stored in `src/assets`. Those files are not image files themselves; they are saved HTML pages that contain metadata for the planet images. The application currently extracts the `og:image` URL from those files during data normalization.
+Example:
 
-### Important Note For Usage
-
-For a more production-ready version of the project, those `.htm` files should be replaced with actual local image assets such as: 
-
-- `.png`
-- `.jpg`
-- `.webp`
-
-That would simplify the rendering pipeline and make the project more stable offline. NOTE specifically used htm for clear version of image. Developer purposely build in format. Turn on your data to use.
-
-## How to Run the Project
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repository-url>
-cd Capstone
+```json
+{
+  "planet": "Mars",
+  "distanceFromSun": 227.9,
+  "image": "./assets/mars-v2.jpg"
+}
 ```
 
-### 2. Install dependencies
+The `image` values now point to real local asset paths that are matched against imported image modules in `fetch.jsx`.
+
+## Running the Project
+
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Start the development server
+### 2. Start the development server
 
 ```bash
 npm run dev
 ```
 
-### 4. Build for production
+### 3. Build for production
 
 ```bash
 npm run build
 ```
 
-### 5. Preview the production build
+### 4. Preview the production build
 
 ```bash
 npm run preview
 ```
 
-## Available Scripts
+### 5. Lint the project
 
-- `npm run dev` starts the Vite development server
-- `npm run build` builds the app for production
-- `npm run preview` previews the production build
-- `npm run lint` runs ESLint checks
+```bash
+npm run lint
+```
 
-## Design Approach
+## Design Direction
 
-The interface was built with a few guiding design decisions:
-
-- Use a **blue-and-white science-themed palette**
-- Keep layouts **moderate and readable**
-- Present information in **progressive sections**
-- Favor **clear grouping** over decorative complexity
-- Use **cards and tables** to support quick scanning
-
-The styling direction is intentionally educational, clean, and structured.
-
-## Roadmap
-
-### Phase 1: Foundation
-
-- Set up React + Vite project
-- Establish page structure
-- Create reusable sections
-- Add Tailwind-based styling
-
-### Phase 2: Content Assembly
-
-- Build hero section
-- Add explainer section
-- Create planet card display
-- Add grouped comparison table
-- Add contact form UI
-- Add footer and project credits
-
-### Phase 3: Data Integration
-
-- Introduce local `planet.json`
-- Normalize data for frontend rendering
-- Resolve image display issues through HTML metadata extraction
-
-### Phase 4: Refinement
-
-- Improve spacing, responsiveness, and alignment
-- Match layout to design references
-- Simplify and moderate component styling
-
-### Proposed Next Steps
-
-- Replace `.htm` image references with proper local image files
-- Add form handling and validation feedback
-- Add filtering or sorting for planetary data
-- Add accessibility review and keyboard testing
-- Add unit/component tests
-- Add deployment instructions and hosted demo link
+The interface uses a blue-and-white visual language intended to feel educational, clean, and approachable. The page is organized into progressive sections so users can move from discovery to comparison to contact without getting lost.
 
 ## Current Status
 
-This project is currently a **frontend-focused educational web application** with local data integration and refined UI sections.
+This project is currently a frontend educational experience with:
 
-What is complete:
-
-- major page sections
-- responsive layouts
+- responsive section-based layout
 - local data rendering
-- grouped comparison content
-- employer-readable structure
+- bundled image assets
+- smooth in-page CTA navigation
+- validated contact form interactions
 
-What can still be improved:
+## Next Improvements
 
-- production-ready asset management
-- backend or form submission logic
-- automated tests
-- content validation against an official scientific dataset
-
-## Usage Notes
-
-This project is best used as:
-
-- a student capstone submission
-- a frontend portfolio project
-- a UI implementation sample
-- a learning product prototype
-
-## References
-
-The project content and assets are inspired by or connected to the following sources used within the application:
-
-- **TS Academy** for the capstone context
-- **YouTube** for the embedded educational video
-- **Planet data in `src/assets/planet.json`**
-- **Planet image metadata extracted from local HTML asset files**
-
-Institutional link:
-
-- [TS Academy](https://tsacademyonline.com/)
+- add automated tests
+- improve accessibility and keyboard-flow checks
+- connect the form flow to a more robust backend response model
+- add filtering, sorting, or search for planet data
+- verify content values against an official scientific data source
 
 ## Team Credit
 
-**Group 7**
+Group 7
 
 Developers listed in the project footer:
 
@@ -338,17 +229,16 @@ Design credit shown in the application:
 - Amaka
 - Ifeoma A.
 
-## Employer Summary
+## References
 
-If you are reviewing this project as a recruiter, hiring manager, or technical evaluator, the strongest signals in this work are:
+- TS Academy
+- YouTube embedded educational content
+- Local planetary dataset in `src/assets/planet.json`
 
-- the ability to translate rough UI references into working React components
-- iterative debugging of data and asset issues
-- structured decomposition of a landing page into maintainable sections
-- practical use of local assets and data transformation
-- attention to layout, readability, and user flow
+Institutional link:
 
-This project shows solid frontend implementation fundamentals and a good base for future expansion into a more complete product.
+- https://tsacademyonline.com/
 
-## Employer Summary
+## License
+
 MIT License

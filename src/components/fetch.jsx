@@ -1,49 +1,36 @@
 import { useState } from 'react'
 import Content2 from './content2.jsx'
 import planetsData from '../assets/planet.json'
-import earthPage from '../assets/Earth2.htm?raw'
-import jupiterPage from '../assets/Jupiter.htm?raw'
-import marsPage from '../assets/Mars.htm?raw'
-import mercuryPage from '../assets/Mecury2.htm?raw'
-import neptunePage from '../assets/Neptune.htm?raw'
-import plutoPage from '../assets/Pluto.htm?raw'
-import saturnPage from '../assets/Saturn.htm?raw'
-import uranusPage from '../assets/Uranus.htm?raw'
-import venusPage from '../assets/Venus2.htm?raw'
+import earthImage from '../assets/EARTH-1024_web.png'
+import jupiterImage from '../assets/jupiter-v2.jpg'
+import marsImage from '../assets/mars-v2.jpg'
+import mercuryImage from '../assets/Mercury.jpg'
+import neptuneImage from '../assets/neptune-v2.jpg'
+import plutoImage from '../assets/pluto.jpg'
+import saturnImage from '../assets/saturn-v2.jpg'
+import uranusImage from '../assets/uranus-v2.jpg'
+import venusImage from '../assets/venus.jpg'
 
-const imagePagesByFile = {
-  'Earth2.htm': earthPage,
-  'Jupiter.htm': jupiterPage,
-  'Mars.htm': marsPage,
-  'Mecury2.htm': mercuryPage,
-  'Neptune.htm': neptunePage,
-  'Pluto.htm': plutoPage,
-  'Saturn.htm': saturnPage,
-  'Uranus.htm': uranusPage,
-  'Venus2.htm': venusPage,
-}
-
-const extractOgImage = (html) => {
-  const ogImageMatch =
-    html.match(/property="og:image"\s+content="([^"]+)"/i) ??
-    html.match(/content="([^"]+)"\s+property="og:image"/i)
-
-  return ogImageMatch?.[1] ?? ''
+const imageUrlsByPath = {
+  './assets/Mercury.jpg': mercuryImage,
+  './assets/venus.jpg': venusImage,
+  './assets/EARTH-1024_web.png': earthImage,
+  './assets/mars-v2.jpg': marsImage,
+  './assets/jupiter-v2.jpg': jupiterImage,
+  './assets/saturn-v2.jpg': saturnImage,
+  './assets/uranus-v2.jpg': uranusImage,
+  './assets/neptune-v2.jpg': neptuneImage,
+  './assets/pluto.jpg': plutoImage,
 }
 
 const FetchPlanets = () => {
   const [planets] = useState(() =>
     Array.isArray(planetsData)
-      ? planetsData.map((planet) => {
-          const imageFile = planet.image.split('/').pop()
-          const imagePage = imagePagesByFile[imageFile] ?? ''
-
-          return {
-            name: planet.planet,
-            distanceFromSun: `${planet.distanceFromSun} million km`,
-            image: extractOgImage(imagePage),
-          }
-        })
+      ? planetsData.map((planet) => ({
+          name: planet.planet,
+          distanceFromSun: `${planet.distanceFromSun} million km`,
+          image: imageUrlsByPath[planet.image] ?? '',
+        }))
       : []
   )
 

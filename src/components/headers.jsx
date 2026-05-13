@@ -1,7 +1,7 @@
 import Logo from '../assets/graphics.png'
 import Planet from '../assets/Image.png'
 
-export default function Headers() {
+export default function Headers({ onExploreData, onContactUs }) {
   return (
     <>
       <header className="bg-[#051540] text-white">
@@ -24,10 +24,18 @@ export default function Headers() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <button className="rounded-md bg-[#164BAF] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#1b5cd4]">
+              <button
+                type="button"
+                onClick={onExploreData}
+                className="rounded-md bg-[#164BAF] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#1b5cd4]"
+              >
                 Explore the Data
               </button>
-              <button className="rounded-md border border-white/35 px-5 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-[#051540]">
+              <button
+                type="button"
+                onClick={onContactUs}
+                className="rounded-md border border-white/35 px-5 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-[#051540]"
+              >
                 Contact Us
               </button>
             </div>

@@ -16,3 +16,27 @@ body {
 #root {
   min-height: 100vh;
 }
+
+.section-rolldown {
+  animation: section-rolldown 1s ease;
+}
+
+@keyframes section-rolldown {
+  0% {
+    opacity: 0.5;
+    transform: translateY(28px);
+    box-shadow: 0 0 0 rgba(33, 84, 187, 0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 18px 45px rgba(33, 84, 187, 0.14);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(33, 84, 187, 0);
+  }
+}

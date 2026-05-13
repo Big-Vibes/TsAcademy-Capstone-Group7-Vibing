@@ -2,46 +2,46 @@
     {
         "planet": "Mercury",
         "distanceFromSun": 57.9,
-        "image": "./assets/Mecury2.htm"
+        "image": "./assets/Mercury.jpg"
     },
     {
         "planet": "Venus",
         "distanceFromSun": 108.2,
-        "image": "./assets/Venus2.htm"
+        "image": "./assets/venus.jpg"
     },
     {
         "planet": "Earth",
         "distanceFromSun": 149.6,
-        "image": "./assets/Earth2.htm"
+        "image": "./assets/EARTH-1024_web.png"
     },
     {
         "planet": "Mars",
         "distanceFromSun": 227.9,
-        "image": "./assets/Mars.htm"
+        "image": "./assets/mars-v2.jpg"
     },
     {
         "planet": "Jupiter",
         "distanceFromSun": 778.6,
-        "image": "./assets/Jupiter.htm"
+        "image": "./assets/jupiter-v2.jpg"
     },
     {
         "planet": "Saturn",
         "distanceFromSun": 1433.5,
-        "image": "./assets/Saturn.htm"
+        "image": "./assets/saturn-v2.jpg"
     },
     {
         "planet": "Uranus",
         "distanceFromSun": 2872.5,
-        "image": "./assets/Uranus.htm"
+        "image": "./assets/uranus-v2.jpg"
     },
     {
         "planet": "Neptune",
         "distanceFromSun": 4495.1,
-        "image": "./assets/Neptune.htm"
+        "image": "./assets/neptune-v2.jpg"
     },
     {
         "planet": "Pluto",
         "distanceFromSun": 5906.4,
-        "image": "./assets/Pluto.htm"
+        "image": "./assets/pluto.jpg"
     }
 ]

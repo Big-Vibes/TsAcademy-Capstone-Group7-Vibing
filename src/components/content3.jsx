@@ -18,12 +18,14 @@ const dwarfPlanets = [
 
 export default function Content3() {
   return (
-    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20 hidden sm:block">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight text-[#2154bb]">
             Planetary Facts at a Glance
+            
           </h2>
+          
           <p className="mt-4 text-sm leading-7 text-[#4a5d7e] sm:text-base">
             Below is a comparative table of major planets in our solar system.
             The arrangement groups similar planets together so the differences
