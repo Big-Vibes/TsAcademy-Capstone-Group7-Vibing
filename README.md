@@ -223,6 +223,7 @@ Developers listed in the project footer:
 - Offiah Victor
 - Jawando Fawaz
 - Samuel Akindele
+- Dan-obinna Seth Covenant
 
 Design credit shown in the application:
 
