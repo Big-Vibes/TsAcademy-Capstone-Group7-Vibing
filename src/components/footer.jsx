@@ -11,8 +11,8 @@ export default function Footers() {
             our solar system through data and interactive content.
           </p>
           <p className="mt-3 text-sm leading-7 text-white/80">
-            Devs: Abiodun Inaolaji, Henry Aniche, Oduguwa Olanrewaju Micheal,
-            Offiah Victor, Jawando Fawaz, Samuel Akindele.
+            Devs: Abiodun Inaolaji, Chidum Henry Aniche, Oduguwa Olanrewaju Micheal,
+            Offiah Victor, Jawando Fawaz, Samuel Akindele, Dan-obinna Seth Covernant
           </p>
         </div>
 
